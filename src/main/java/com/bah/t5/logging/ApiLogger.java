@@ -1,4 +1,4 @@
-package com.webage.logging;
+package com.bah.t5.logging;
 
 public class ApiLogger {
 	private static String module = "na";

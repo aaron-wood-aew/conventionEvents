@@ -1,4 +1,4 @@
-package com.webage.domain;
+package com.bah.t5.domain;
 
 import java.util.Date;
 
@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="REGISTRATIONS")
 public class Registration {
@@ -16,5 +17,4 @@ public class Registration {
 	//
 	//  Implement Registration.  Your implementation is very likely going to change 
 	//  over time as you add functionality 
-	return null;
 }

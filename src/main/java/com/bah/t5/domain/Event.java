@@ -1,4 +1,4 @@
-package com.webage.domain;
+package com.bah.t5.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,5 +13,4 @@ public class Event {
 	//  Workshop:
 	//
 	//  Create an Event class, and implement methods to manage event data.
-	return null;
 }

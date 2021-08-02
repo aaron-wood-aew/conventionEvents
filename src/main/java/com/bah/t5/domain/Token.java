@@ -1,4 +1,4 @@
-package com.webage.domain;
+package com.bah.t5.domain;
 
 public class Token {
 	String token;
