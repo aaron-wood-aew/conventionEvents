@@ -21,5 +21,51 @@ public class Customer {
 	//  as its persistent store, or you may choose some other mechanism.  In thinking about 
 	//  how you implement the custome domain, what do you think about to make it easier and 
 	//  safer to move from one represenstation to another.	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private long id;
 	
+	@Column(name="CUSTOMER_NAME")
+	private String name;
+	
+	private String password;
+	
+	private String email;
+	
+	@Override
+	public String toString() {
+		return "ID: " + this.id + " | Name: " + this.name + " | Email: " + this.email;
+	}
+	
+	public String getPassword() {
+		return this.password;
+	}
+	
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 }
