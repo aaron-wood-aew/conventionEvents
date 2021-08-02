@@ -1,7 +1,5 @@
 package com.bah.t5.api;
 
-import java.net.URI;
-import java.util.Iterator;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +17,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.bah.t5.domain.Customer;
-import com.bah.t5.logging.ApiLogger;
 import com.bah.t5.repository.CustomersRepository;
 
 @RestController
@@ -32,7 +29,7 @@ public class CustomerAPI {
 	public Iterable<Customer> getAll() {
 		//  Workshop:  Write an implementation that replies with all customers.
 		//  Your implementation should be no more than a few lines, at most, and make use of the 'repo' object
-		return null;   
+		return repo.findAll();   
 	}
 
 	@GetMapping("/{customerId}")

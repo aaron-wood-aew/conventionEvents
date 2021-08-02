@@ -1,4 +1,4 @@
-package com.webage.domain;
+package com.bah.t5.domain;
 
 import org.json.JSONObject;
 
@@ -8,5 +8,4 @@ public class CustomerFactory {
         //  Implement a Customer Factory.  Your implementation may change over time as
         //  the rest of your application becomes more complex, so don't be afraid to
         //  add functionlity as opposed to trying to update what you're previously written.
-        return null;
 }
