@@ -33,16 +33,26 @@ public class EventAPI {
 	}
 
 	@GetMapping("/{eventId}")
-	public Optional<Event> getEventById(@PathVariable("eventId") long id) {
+	public ResponseEntity<?> getEventById(@PathVariable("eventId") long id) {
 		//  Workshop:  Implement a method to retrieve a single event by it's ID
-		return null;
+		return ResponseEntity.ok(repo.findOne(id));
 	}
 	
 	@PostMapping
 	public ResponseEntity<?> addEvent(@RequestBody Event newEvent, UriComponentsBuilder uri) {
 		//  Workshop:  Implement a method to create a new event in response to a POST message.
 		//  Think about how you ensure that the event is properly formed.
-		return null;
+		if (newEvent.getId() != 0 || newEvent.getCode() == null || newEvent.getTitle() == null) {
+			// Reject we'll assign the customer id
+			return ResponseEntity.badRequest().build();
+		}
+		
+		newEvent= repo.save(newEvent);
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+				.buildAndExpand(newEvent.getId()).toUri();
+		ResponseEntity<?> response = ResponseEntity.created(location).build();
+		
+		return response;
 	}
 
 	@PutMapping("/{eventId}")
@@ -51,13 +61,18 @@ public class EventAPI {
 			@PathVariable("eventId") long eventId) 
 	{
 		//  Workshop:  Implement a method to update an entitye in response to a PUT message.
-		return null;
+		if (newEvent.getId() != eventId || newEvent.getCode() == null || newEvent.getTitle() == null) {
+			return ResponseEntity.badRequest().build();
+		}
+		newEvent = repo.save(newEvent);
+		return ResponseEntity.ok().build();
 	}	
 	
 	@DeleteMapping("/{eventId}")
 	public ResponseEntity<?> deleteEventById(@PathVariable("eventId") long id) {
 		//  Workshop:  Implement a method to delete an entity. 
-		return null;
+		repo.delete(id);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}	
 	
 }
