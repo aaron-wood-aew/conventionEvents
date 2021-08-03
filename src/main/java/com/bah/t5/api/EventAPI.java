@@ -43,7 +43,6 @@ public class EventAPI {
 		//  Workshop:  Implement a method to create a new event in response to a POST message.
 		//  Think about how you ensure that the event is properly formed.
 		if (newEvent.getId() != 0 || newEvent.getCode() == null || newEvent.getTitle() == null) {
-			// Reject we'll assign the customer id
 			return ResponseEntity.badRequest().build();
 		}
 		
