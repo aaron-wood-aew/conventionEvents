@@ -39,7 +39,7 @@ public class CustomerAPI {
 	public ResponseEntity<?> getCustomerById(@PathVariable("customerId") long id) {
 		//  Workshop:  Write an implementatoin that looks up one customer.  What do you return if the requested 
 		//  customer ID does not exists?  This implementation could be as short as a single line.
-		return ResponseEntity.ok(repo.findOne(id));
+		return ResponseEntity.ok(repo.findById(id));
 	}
 	
 	@PostMapping
@@ -128,7 +128,7 @@ public class CustomerAPI {
 		//  a "delete"?  Is it always the right thing from a business point of view to literally 
 		//  delete a customer entry?  If you did actually delete a customer entry, are there issues
 		//  you could potentially run into later? 
-		repo.delete(id);
+		repo.deleteById(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}	
 	
