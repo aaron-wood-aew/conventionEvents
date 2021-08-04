@@ -37,7 +37,7 @@ public class CustomerAPI {
 
 	@GetMapping("/{customerId}")
 	public ResponseEntity<?> getCustomerById(@PathVariable("customerId") long id) {
-		//  Workshop:  Write an implementatoin that looks up one customer.  What do you return if the requested 
+		//  Workshop:  Write an implementation that looks up one customer.  What do you return if the requested 
 		//  customer ID does not exists?  This implementation could be as short as a single line.
 		return ResponseEntity.ok(repo.findById(id));
 	}
