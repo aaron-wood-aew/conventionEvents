@@ -36,7 +36,7 @@ public class RegistrationAPI {
 	@GetMapping("/{registrationId}")
 	public ResponseEntity<?> getRegistrationById(@PathVariable("registrationId") long id) {
 		//  Workshop:  Implementation to return a single registration from an ID
-		return ResponseEntity.ok(repo.findOne(id));
+		return ResponseEntity.ok(repo.findById(id));
 	}
 
 	@PostMapping
@@ -74,7 +74,7 @@ public class RegistrationAPI {
 		//  data across various entities?  Where should these checks be implemented.  Are there
 		//  advantages and disadvantages to separating data into separate independent entities,
 		//  each with it's own "microservice"?
-		repo.delete(id);
+		repo.deleteById(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}	
 	

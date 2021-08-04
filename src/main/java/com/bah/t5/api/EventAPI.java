@@ -35,7 +35,7 @@ public class EventAPI {
 	@GetMapping("/{eventId}")
 	public ResponseEntity<?> getEventById(@PathVariable("eventId") long id) {
 		//  Workshop:  Implement a method to retrieve a single event by it's ID
-		return ResponseEntity.ok(repo.findOne(id));
+		return ResponseEntity.ok(repo.findById(id));
 	}
 	
 	@PostMapping
@@ -70,7 +70,7 @@ public class EventAPI {
 	@DeleteMapping("/{eventId}")
 	public ResponseEntity<?> deleteEventById(@PathVariable("eventId") long id) {
 		//  Workshop:  Implement a method to delete an entity. 
-		repo.delete(id);
+		repo.deleteById(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}	
 	
