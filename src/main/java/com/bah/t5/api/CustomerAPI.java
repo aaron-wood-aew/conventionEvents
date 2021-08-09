@@ -73,20 +73,22 @@ public class CustomerAPI {
 		ApiLogger.log("username: " + username);
 		Iterator<Customer> customers = repo.findAll().iterator();
 		
-		ArrayList<Customer> custs = new ArrayList<Customer>();
+		//ArrayList<Customer> custs = new ArrayList<Customer>();
 		
 		while(customers.hasNext()) {
 			Customer cust = customers.next();
 			if(cust.getName().equalsIgnoreCase(username)) {
-				custs.add(cust);			
+				//custs.add(cust);
+				return ResponseEntity.ok(cust);
 			}			
 		}
-		if (custs.size() != 0) {
+		/*if (custs.size() != 0) {
 			ResponseEntity<?> response = ResponseEntity.ok(custs);
 			return response;
 		} else {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-		}
+		}*/
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 	}
 	
 	//lookupCustomerByName POST
